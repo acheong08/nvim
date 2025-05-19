@@ -2,6 +2,15 @@
 --  I promise not to create any merge conflicts in this directory :)
 --
 -- See the kickstart.nvim README for more information
+vim.api.nvim_create_autocmd("BufEnter", {
+	pattern = "copilot-*",
+	callback = function()
+		-- Set buffer-local options
+		vim.opt_local.relativenumber = true
+		vim.opt_local.number = true
+		vim.opt_local.conceallevel = 0
+	end,
+})
 return {
 	{
 		"romgrk/barbar.nvim",
@@ -20,32 +29,33 @@ return {
 		},
 		version = "^1.0.0", -- optional: only update when a new 1.x version is released
 	},
-	{
-		{
-			"zbirenbaum/copilot.lua",
-			opts = {
-				server_opts_overrides = {
-					settings = {
-						telemetry = {
-							telemetryLevel = "off",
-						},
-					},
-				},
-			},
-		},
-	},
+	-- {
+	-- 	"copilotlsp-nvim/copilot-lsp",
+	-- 	init = function()
+	-- 		vim.g.copilot_nes_debounce = 500
+	-- 		vim.lsp.enable("copilot_ls")
+	-- 		vim.keymap.set("n", "<tab>", function()
+	-- 			-- Try to jump to the start of the suggestion edit.
+	-- 			-- If already at the start, then apply the pending suggestion and jump to the end of the edit.
+	-- 			local _ = require("copilot-lsp.nes").walk_cursor_start_edit()
+	-- 				or (
+	-- 					require("copilot-lsp.nes").apply_pending_nes()
+	-- 					and require("copilot-lsp.nes").walk_cursor_end_edit()
+	-- 				)
+	-- 		end)
+	-- 	end,
+	-- },
 	{
 		{
 			"CopilotC-Nvim/CopilotChat.nvim",
 			branch = "main",
 			dependencies = {
-				{ "zbirenbaum/copilot.lua" }, -- or github/copilot.vim
 				{ "nvim-lua/plenary.nvim" }, -- for curl, log wrapper
 			},
 			build = "make tiktoken", -- Only on MacOS or Linux
 			opts = {
 				debug = false, -- Enable debugging
-				model = "o3-mini",
+				model = "gpt-4.1",
 				chat_autocomplete = true,
 				window = {
 					-- layout = 'replace',

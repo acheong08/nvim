@@ -154,6 +154,7 @@ vim.opt.rtp:prepend(lazypath)
 --
 -- NOTE: Here is where you install your plugins.
 require("lazy").setup({
+	"nvim-java/nvim-java",
 	-- NOTE: Plugins can be added with a link (or for a github repo: 'owner/repo' link).
 	"tpope/vim-sleuth", -- Detect tabstop and shiftwidth automatically
 
@@ -583,6 +584,7 @@ require("lazy").setup({
 			})
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
+			require("java").setup()
 			require("mason-lspconfig").setup({
 				handlers = {
 					function(server_name)
@@ -883,7 +885,6 @@ require("lazy").setup({
 	--  Uncomment the following line and add your plugins to `lua/custom/plugins/*.lua` to get going.
 	--    For additional information, see `:help lazy.nvim-lazy.nvim-structuring-your-plugins`
 	{ import = "custom.plugins" },
-	{ import = "plugins.java" },
 }, {
 	ui = {
 		-- If you are using a Nerd Font: set icons to an empty table which will use the
@@ -907,24 +908,24 @@ require("lazy").setup({
 })
 
 -- Copilot
-require("copilot").setup({
-	filetypes = {
-		["."] = false,
-	},
-	suggestion = {
-		enabled = false,
-		auto_trigger = false,
-		debounce = 75,
-		keymap = {
-			accept = "<M-l>",
-			accept_word = "<M-;>",
-			accept_line = "<M-k>",
-			next = "<M-]>",
-			prev = "<M-[>",
-			dismiss = "<C-]>",
-		},
-	},
-})
+-- require("copilot").setup({
+-- 	filetypes = {
+-- 		["."] = false,
+-- 	},
+-- 	suggestion = {
+-- 		enabled = false,
+-- 		auto_trigger = false,
+-- 		debounce = 75,
+-- 		keymap = {
+-- 			accept = "<M-l>",
+-- 			accept_word = "<M-;>",
+-- 			accept_line = "<M-k>",
+-- 			next = "<M-]>",
+-- 			prev = "<M-[>",
+-- 			dismiss = "<C-]>",
+-- 		},
+-- 	},
+-- })
 
 -- Set proper background (No weird theme)
 vim.cmd("highlight Normal ctermbg=NONE guibg=NONE")
