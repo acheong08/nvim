@@ -58,7 +58,7 @@ return {
 				model = "gpt-4.1",
 				chat_autocomplete = true,
 				window = {
-					-- layout = 'replace',
+					-- layout = "replace",
 				},
 				context = "register",
 				include_contexts_in_prompt = false,

@@ -644,7 +644,7 @@ require("lazy").setup({
 				-- python = { "ruff" },
 				xml = { "xmlformatter" },
 				java = { "google-java-format" },
-				markdown = { "markdownlint" },
+				markdown = { "prettierd" },
 				kotlin = { "ktfmt" },
 				--
 				-- You can use 'stop_after_first' to run the first available formatter from the list
