@@ -585,9 +585,32 @@ require("lazy").setup({
 			require("mason-tool-installer").setup({ ensure_installed = ensure_installed })
 
 			require("java").setup()
+
+			-- Configure SourceKit-LSP manually since it's not available through Mason
+			local lspconfig = require("lspconfig")
+			lspconfig.sourcekit.setup({
+				capabilities = vim.tbl_deep_extend("force", {}, capabilities, {
+					workspace = {
+						didChangeWatchedFiles = {
+							dynamicRegistration = true,
+						},
+					},
+				}),
+				filetypes = { "swift", "c", "cpp", "objective-c", "objective-cpp" },
+				root_dir = function(fname)
+					return lspconfig.util.root_pattern("Package.swift", "*.xcodeproj", "*.xcworkspace")(fname)
+						or lspconfig.util.find_git_ancestor(fname)
+						or lspconfig.util.path.dirname(fname)
+				end,
+			})
+
 			require("mason-lspconfig").setup({
 				handlers = {
 					function(server_name)
+						-- Skip sourcekit since we configure it manually above
+						if server_name == "sourcekit" then
+							return
+						end
 						local server = servers[server_name] or {}
 						-- This handles overriding only values explicitly passed
 						-- by the server configuration above. Useful when disabling
@@ -838,7 +861,7 @@ require("lazy").setup({
 		main = "nvim-treesitter.configs", -- Sets main module to use for opts
 		-- [[ Configure Treesitter ]] See `:help nvim-treesitter`
 		opts = {
-			ensure_installed = { "lua", "go", "html", "java" },
+			ensure_installed = { "lua", "go", "html", "java", "swift" },
 			-- Autoinstall languages that are not installed
 			auto_install = true,
 			highlight = {
