@@ -954,6 +954,7 @@ require("lazy").setup({
 vim.cmd("highlight Normal ctermbg=NONE guibg=NONE")
 vim.cmd("highlight EndOfBuffer ctermbg=NONE guibg=NONE")
 vim.wo.signcolumn = "no"
+vim.opt.conceallevel = 2
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
 map("n", "<C-S-tab>", "<Cmd>BufferPrevious<CR>", opts)
