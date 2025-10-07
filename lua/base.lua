@@ -26,6 +26,8 @@ vim.pack.add({
 	"https://github.com/nvim-lua/plenary.nvim",
 	"https://github.com/nvim-telescope/telescope-fzf-native.nvim",
 	"https://github.com/nvim-telescope/telescope-ui-select.nvim",
+	-- Completion
+	{ src = "https://github.com/Saghen/blink.cmp" },
 })
 
 require("nvim-treesitter").install({ "lua", "typescript", "go" })
@@ -76,6 +78,12 @@ require("telescope").setup({
 		["ui-select"] = {
 			require("telescope.themes").get_dropdown(),
 		},
+	},
+})
+require("blink.cmp").setup({
+	keymap = { preset = "default" },
+	fuzzy = {
+		prebuilt_binaries = { download = true, force_version = "v1.7.0" },
 	},
 })
 
