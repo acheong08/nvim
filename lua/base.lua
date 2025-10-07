@@ -2,6 +2,9 @@ vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.opt.number = true
 vim.opt.relativenumber = true
+vim.opt.spell = true
+vim.opt.spelllang = "en_us"
+vim.opt.clipboard = "unnamedplus"
 
 -- Baseline requirements such as tree-sitter
 vim.pack.add({
@@ -55,11 +58,22 @@ require("mason-tool-installer").setup({
 	ensure_installed = {
 		"lua_ls",
 		"stylua",
+		"gopls",
+		"prettierd",
+		"typstyle",
+		"typescript-language-server",
+		"svelte-language-server",
+		"shfmt",
 	},
 })
 require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
+		markdown = { "prettierd" },
+		typst = { "typstyle" },
+		svelte = { "prettierd" },
+		shell = { "shfmt" },
+		sh = { "shfmt" },
 		-- Conform will run multiple formatters sequentially
 		-- python = { "isort", "black" },
 		-- -- You can customize some of the format options for the filetype (:help conform.format)
@@ -80,6 +94,14 @@ require("telescope").setup({
 		},
 	},
 })
+
+vim.lsp.config["ts_ls"] = {
+	cmd = { "typescript-language-server", "--stdio" },
+	filetypes = { "typescript", "svelte" },
+	root_markers = { ".git" },
+}
+vim.lsp.enable("typescript-language-server")
+
 require("blink.cmp").setup({
 	keymap = { preset = "default" },
 	fuzzy = {
@@ -111,3 +133,6 @@ vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" }
 vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
 vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
 vim.keymap.set("n", "<leader>zf", builtin.spell_suggest, { desc = "Telescope: Find spell word suggestion" })
+
+-- LSP shortcuts
+vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
