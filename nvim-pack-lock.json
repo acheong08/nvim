@@ -1,0 +1,24 @@
+{
+  "plugins": {
+    "barbar.nvim": [],
+    "blink.cmp": [],
+    "conform": [],
+    "jj-diffconflicts": {
+      "rev": "bee239e",
+      "src": "https://github.com/rafikdraoui/jj-diffconflicts"
+    },
+    "mason-lspconfig.nvim": [],
+    "mason-tool-installer.nvim": [],
+    "mason.nvim": [],
+    "nvim-lspconfig": [],
+    "nvim-treesitter": {
+      "version": "'main'"
+    },
+    "nvim-web-devicons": [],
+    "plenary.nvim": [],
+    "telescope-fzf-native.nvim": [],
+    "telescope-ui-select.nvim": [],
+    "telescope.nvim": [],
+    "treesitter-modules.nvim": []
+  }
+}
