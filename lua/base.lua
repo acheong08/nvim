@@ -31,6 +31,7 @@ vim.pack.add({
 	"https://github.com/nvim-telescope/telescope-ui-select.nvim",
 	-- Completion
 	{ src = "https://github.com/Saghen/blink.cmp" },
+	"https://github.com/rafikdraoui/jj-diffconflicts",
 })
 
 require("nvim-treesitter").install({ "lua", "typescript", "go" })
@@ -61,6 +62,7 @@ require("mason-tool-installer").setup({
 		"gopls",
 		"prettierd",
 		"typstyle",
+		"biome",
 		"typescript-language-server",
 		"svelte-language-server",
 		"shfmt",
@@ -79,11 +81,13 @@ require("conform").setup({
 		-- -- You can customize some of the format options for the filetype (:help conform.format)
 		-- rust = { "rustfmt", lsp_format = "fallback" },
 		-- -- Conform will run the first available formatter
-		-- javascript = { "prettierd", "prettier", stop_after_first = true },
+		javascript = { "biome" },
+		typescript = { "biome" },
+		typescriptreact = { "biome" },
 	},
 	format_on_save = {
 		-- These options will be passed to conform.format()
-		timeout_ms = 500,
+		timeout_ms = 2000,
 		lsp_format = "fallback",
 	},
 })
@@ -97,7 +101,7 @@ require("telescope").setup({
 
 vim.lsp.config["ts_ls"] = {
 	cmd = { "typescript-language-server", "--stdio" },
-	filetypes = { "typescript", "svelte" },
+	filetypes = { "typescript", "svelte", "typescriptreact" },
 	root_markers = { ".git" },
 }
 vim.lsp.enable("typescript-language-server")
@@ -121,18 +125,19 @@ pcall(require("telescope").load_extension, "fzf")
 pcall(require("telescope").load_extension, "ui-select")
 
 -- See `:help telescope.builtin`
-local builtin = require("telescope.builtin")
+local telescope_builtin = require("telescope.builtin")
 -- vim.keymap.set("n", "<leader>sh", builtin.help_tags, { desc = "[S]earch [H]elp" })
 -- vim.keymap.set("n", "<leader>sk", builtin.keymaps, { desc = "[S]earch [K]eymaps" })
-vim.keymap.set("n", "<leader>sf", builtin.find_files, { desc = "[S]earch [F]iles" })
+vim.keymap.set("n", "<leader>sf", telescope_builtin.find_files, { desc = "[S]earch [F]iles" })
+vim.keymap.set("n", "gr", telescope_builtin.lsp_references, { desc = "[G]oto [R]eferences" })
 -- vim.keymap.set("n", "<leader>ss", builtin.builtin, { desc = "[S]earch [S]elect Telescope" })
 -- vim.keymap.set("n", "<leader>sw", builtin.grep_string, { desc = "[S]earch current [W]ord" })
-vim.keymap.set("n", "<leader>sg", builtin.live_grep, { desc = "[S]earch by [G]rep" })
-vim.keymap.set("n", "<leader>sd", builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
-vim.keymap.set("n", "<leader>sr", builtin.resume, { desc = "[S]earch [R]esume" })
-vim.keymap.set("n", "<leader>s.", builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
-vim.keymap.set("n", "<leader><leader>", builtin.buffers, { desc = "[ ] Find existing buffers" })
-vim.keymap.set("n", "<leader>zf", builtin.spell_suggest, { desc = "Telescope: Find spell word suggestion" })
+vim.keymap.set("n", "<leader>sg", telescope_builtin.live_grep, { desc = "[S]earch by [G]rep" })
+vim.keymap.set("n", "<leader>sd", telescope_builtin.diagnostics, { desc = "[S]earch [D]iagnostics" })
+vim.keymap.set("n", "<leader>sr", telescope_builtin.resume, { desc = "[S]earch [R]esume" })
+vim.keymap.set("n", "<leader>s.", telescope_builtin.oldfiles, { desc = '[S]earch Recent Files ("." for repeat)' })
+vim.keymap.set("n", "<leader><leader>", telescope_builtin.buffers, { desc = "[ ] Find existing buffers" })
+vim.keymap.set("n", "<leader>zf", telescope_builtin.spell_suggest, { desc = "Telescope: Find spell word suggestion" })
 
 -- LSP shortcuts
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
