@@ -1,24 +1,110 @@
 {
   "plugins": {
-    "barbar.nvim": [],
-    "blink.cmp": [],
-    "conform": [],
+    "CopilotChat.nvim": {
+      "rev": "df5376c",
+      "src": "https://github.com/CopilotC-Nvim/CopilotChat.nvim"
+    },
+    "barbar.nvim": {
+      "rev": "539d73d",
+      "src": "https://github.com/romgrk/barbar.nvim"
+    },
+    "blink.cmp": {
+      "rev": "7beba91",
+      "src": "https://github.com/Saghen/blink.cmp"
+    },
+    "conform": {
+      "rev": "ffe26e8",
+      "src": "https://github.com/stevearc/conform.nvim"
+    },
     "jj-diffconflicts": {
       "rev": "bee239e",
       "src": "https://github.com/rafikdraoui/jj-diffconflicts"
     },
-    "mason-lspconfig.nvim": [],
-    "mason-tool-installer.nvim": [],
-    "mason.nvim": [],
-    "nvim-lspconfig": [],
+    "lua-async-await": {
+      "rev": "652d94d",
+      "src": "https://github.com/nvim-java/lua-async-await"
+    },
+    "mason-lspconfig.nvim": {
+      "rev": "0b9bb92",
+      "src": "https://github.com/mason-org/mason-lspconfig.nvim"
+    },
+    "mason-tool-installer.nvim": {
+      "rev": "517ef59",
+      "src": "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim"
+    },
+    "mason.nvim": {
+      "rev": "57e5a8a",
+      "src": "https://github.com/mason-org/mason.nvim"
+    },
+    "nui.nvim": {
+      "rev": "de74099",
+      "src": "https://github.com/MunifTanjim/nui.nvim"
+    },
+    "nvim-dap": {
+      "rev": "5860c7c",
+      "src": "https://github.com/mfussenegger/nvim-dap"
+    },
+    "nvim-java": {
+      "rev": "68ade552868f4a6b1141c87dd9741fa3ef4b6aa7",
+      "src": "https://github.com/nvim-java/nvim-java",
+      "version": "'v4.0.0'"
+    },
+    "nvim-java-core": {
+      "rev": "229ebcd",
+      "src": "https://github.com/nvim-java/nvim-java-core"
+    },
+    "nvim-java-dap": {
+      "rev": "55f2395",
+      "src": "https://github.com/nvim-java/nvim-java-dap"
+    },
+    "nvim-java-refactor": {
+      "rev": "b51a57d",
+      "src": "https://github.com/nvim-java/nvim-java-refactor"
+    },
+    "nvim-java-test": {
+      "rev": "7f0f40e",
+      "src": "https://github.com/nvim-java/nvim-java-test"
+    },
+    "nvim-lspconfig": {
+      "rev": "7757d54",
+      "src": "https://github.com/neovim/nvim-lspconfig"
+    },
     "nvim-treesitter": {
+      "rev": "857fb97b",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
-    "nvim-web-devicons": [],
-    "plenary.nvim": [],
-    "telescope-fzf-native.nvim": [],
-    "telescope-ui-select.nvim": [],
-    "telescope.nvim": [],
-    "treesitter-modules.nvim": []
+    "nvim-web-devicons": {
+      "rev": "8dcb311",
+      "src": "https://github.com/nvim-tree/nvim-web-devicons"
+    },
+    "onedark.nvim": {
+      "rev": "213c23a",
+      "src": "https://github.com/navarasu/onedark.nvim"
+    },
+    "plenary.nvim": {
+      "rev": "b9fd522",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
+    "spring-boot.nvim": {
+      "rev": "dff5fc9",
+      "src": "https://github.com/JavaHello/spring-boot.nvim"
+    },
+    "telescope-fzf-native.nvim": {
+      "rev": "6fea601",
+      "src": "https://github.com/nvim-telescope/telescope-fzf-native.nvim"
+    },
+    "telescope-ui-select.nvim": {
+      "rev": "6e51d7d",
+      "src": "https://github.com/nvim-telescope/telescope-ui-select.nvim"
+    },
+    "telescope.nvim": {
+      "rev": "e69b434",
+      "src": "https://github.com/nvim-telescope/telescope.nvim"
+    },
+    "treesitter-modules.nvim": {
+      "rev": "feda026",
+      "src": "https://github.com/MeanderingProgrammer/treesitter-modules.nvim"
+    }
   }
 }
