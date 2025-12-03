@@ -7,3 +7,18 @@ vim.pack.add({
 	"https://github.com/JavaHello/spring-boot.nvim",
 })
 require("java").setup()
+vim.lsp.config("jdtls", {
+	settings = {
+		java = {
+			configuration = {
+				runtimes = {
+					{
+						name = "JavaSE-25",
+						path = "/home/acheong/.sdkman/candidates/java/current",
+						default = true,
+					},
+				},
+			},
+		},
+	},
+})
