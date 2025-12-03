@@ -4,5 +4,5 @@ vim.pack.add({
 })
 
 require("CopilotChat").setup({
-	model = "claude-opus-4.5",
+	model = "gpt-5-mini",
 })

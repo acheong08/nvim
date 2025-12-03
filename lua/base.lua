@@ -1,9 +1,9 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.opt.number = true
-vim.opt.relativenumber = true
+vim.opt.relativenumber = false
 vim.opt.spell = true
-vim.opt.spelllang = "en_us"
+vim.opt.spelllang = "en_gb"
 vim.opt.clipboard = "unnamedplus"
 
 -- Baseline requirements such as tree-sitter
@@ -30,8 +30,19 @@ vim.pack.add({
 	"https://github.com/nvim-telescope/telescope-fzf-native.nvim",
 	"https://github.com/nvim-telescope/telescope-ui-select.nvim",
 	-- Completion
-	{ src = "https://github.com/Saghen/blink.cmp" },
+	"https://github.com/Saghen/blink.cmp",
 	"https://github.com/rafikdraoui/jj-diffconflicts",
+})
+vim.pack.add({
+	{
+		src = "https://github.com/nvim-neo-tree/neo-tree.nvim",
+		version = vim.version.range("3"),
+	},
+	-- dependencies
+	"https://github.com/nvim-lua/plenary.nvim",
+	"https://github.com/MunifTanjim/nui.nvim",
+	-- optional, but recommended
+	"https://github.com/nvim-tree/nvim-web-devicons",
 })
 
 require("nvim-treesitter").install({ "lua", "typescript", "go" })
@@ -60,20 +71,25 @@ require("mason-tool-installer").setup({
 		"lua_ls",
 		"stylua",
 		"gopls",
-		"prettierd",
+		"prettier",
 		"typstyle",
 		"biome",
 		"typescript-language-server",
 		"svelte-language-server",
 		"shfmt",
+		"jdtls",
+		"ruff",
+		"basedpyright",
+		"google-java-format",
+		"ktfmt",
 	},
 })
 require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
-		markdown = { "prettierd" },
+		markdown = { "prettier" },
 		typst = { "typstyle" },
-		svelte = { "prettierd" },
+		svelte = { "prettier" },
 		shell = { "shfmt" },
 		sh = { "shfmt" },
 		-- Conform will run multiple formatters sequentially
@@ -84,6 +100,9 @@ require("conform").setup({
 		javascript = { "biome" },
 		typescript = { "biome" },
 		typescriptreact = { "biome" },
+		python = { "ruff" },
+		java = { "google-java-format" },
+		kotlin = { "ktfmt" },
 	},
 	format_on_save = {
 		-- These options will be passed to conform.format()

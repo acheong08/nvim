@@ -36,6 +36,11 @@
       "rev": "57e5a8a",
       "src": "https://github.com/mason-org/mason.nvim"
     },
+    "neo-tree.nvim": {
+      "rev": "4925f31285940af2805f5bfe52dcffa2037ecab2",
+      "src": "https://github.com/nvim-neo-tree/neo-tree.nvim",
+      "version": "3.0.0 - 4.0.0"
+    },
     "nui.nvim": {
       "rev": "de74099",
       "src": "https://github.com/MunifTanjim/nui.nvim"
