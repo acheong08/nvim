@@ -6,19 +6,10 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-java/nvim-java", version = "v4.0.0" },
 	"https://github.com/JavaHello/spring-boot.nvim",
 })
-require("java").setup()
-vim.lsp.config("jdtls", {
-	settings = {
-		java = {
-			configuration = {
-				runtimes = {
-					{
-						name = "JavaSE-25",
-						path = "/home/acheong/.sdkman/candidates/java/current",
-						default = true,
-					},
-				},
-			},
-		},
+require("java").setup({
+	jdk = {
+		auto_install = false,
+		version = "23.0.2",
 	},
 })
+vim.lsp.config("jdtls", {})
