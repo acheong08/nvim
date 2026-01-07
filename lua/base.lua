@@ -3,7 +3,7 @@ vim.g.maplocalleader = " "
 vim.opt.number = true
 vim.opt.relativenumber = false
 vim.opt.spell = true
-vim.opt.spelllang = "en_gb"
+vim.opt.spelllang = "en_us"
 vim.opt.clipboard = "unnamedplus"
 
 -- Baseline requirements such as tree-sitter
@@ -160,3 +160,11 @@ vim.keymap.set("n", "<leader>zf", telescope_builtin.spell_suggest, { desc = "Tel
 
 -- LSP shortcuts
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
+
+-- Scratch buffer
+vim.keymap.set("n", "<leader>bs", function()
+	vim.cmd("enew")
+	vim.bo.buftype = "nofile"
+	vim.bo.bufhidden = "wipe"
+	vim.bo.swapfile = false
+end, { desc = "[B]uffer [S]cratch - create new scratch buffer" })
