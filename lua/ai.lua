@@ -4,5 +4,5 @@ vim.pack.add({
 })
 
 require("CopilotChat").setup({
-	model = "gpt-5-mini",
+	model = "gemini-3-flash-preview",
 })

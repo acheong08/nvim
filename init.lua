@@ -1,4 +1,5 @@
 require("base")
+require("debugger")
 require("ai")
 require("colors")
 require("javalsp")
