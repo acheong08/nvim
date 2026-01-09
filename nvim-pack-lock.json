@@ -55,8 +55,7 @@
     },
     "nvim-java": {
       "rev": "68ade552868f4a6b1141c87dd9741fa3ef4b6aa7",
-      "src": "https://github.com/nvim-java/nvim-java",
-      "version": "'v4.0.0'"
+      "src": "https://github.com/nvim-java/nvim-java"
     },
     "nvim-java-core": {
       "rev": "229ebcd",
