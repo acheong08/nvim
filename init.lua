@@ -1,4 +1,5 @@
 require("base")
+require("filetypes")
 require("debugger")
 require("ai")
 require("colors")
