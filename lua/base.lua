@@ -121,14 +121,8 @@ vim.lsp.config["ts_ls"] = {
 	filetypes = { "typescript", "svelte", "typescriptreact" },
 	root_markers = { ".git" },
 }
-vim.lsp.enable("typescript-language-server")
 
-require("blink.cmp").setup({
-	keymap = { preset = "default" },
-	fuzzy = {
-		prebuilt_binaries = { download = true, force_version = "v1.7.0" },
-	},
-})
+vim.lsp.enable("typescript-language-server")
 
 local map = vim.api.nvim_set_keymap
 local opts = { noremap = true, silent = true }
