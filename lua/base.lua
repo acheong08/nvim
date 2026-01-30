@@ -118,7 +118,7 @@ require("telescope").setup({
 
 vim.lsp.config["ts_ls"] = {
 	cmd = { "typescript-language-server", "--stdio" },
-	filetypes = { "typescript", "svelte", "typescriptreact" },
+	filetypes = { "typescript", "svelte", "typescriptreact", "javascript" },
 	root_markers = { ".git" },
 }
 
@@ -160,3 +160,14 @@ vim.keymap.set("n", "<leader>bs", function()
 	vim.bo.bufhidden = "wipe"
 	vim.bo.swapfile = false
 end, { desc = "[B]uffer [S]cratch - create new scratch buffer" })
+
+-- Auto completion
+require("blink.cmp").setup({
+	sources = {
+		default = { "lsp", "path", "snippets", "buffer" },
+	},
+	keymap = { preset = "default" },
+	fuzzy = {
+		prebuilt_binaries = { download = true, force_version = "v1.7.0" },
+	},
+})
