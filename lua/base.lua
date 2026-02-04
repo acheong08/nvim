@@ -73,6 +73,7 @@ require("mason-tool-installer").setup({
 		"typstyle",
 		"biome",
 		"typescript-language-server",
+		"gofumpt",
 		"svelte-language-server",
 		"shfmt",
 		"jdtls",
@@ -90,17 +91,13 @@ require("conform").setup({
 		svelte = { "prettier" },
 		shell = { "shfmt" },
 		sh = { "shfmt" },
-		-- Conform will run multiple formatters sequentially
-		-- python = { "isort", "black" },
-		-- -- You can customize some of the format options for the filetype (:help conform.format)
-		-- rust = { "rustfmt", lsp_format = "fallback" },
-		-- -- Conform will run the first available formatter
 		javascript = { "biome" },
 		typescript = { "biome" },
 		typescriptreact = { "biome" },
 		python = { "ruff" },
 		java = { "google-java-format" },
 		kotlin = { "ktfmt" },
+		go = { "gofumpt" },
 	},
 	format_on_save = {
 		-- These options will be passed to conform.format()
