@@ -3,7 +3,7 @@ vim.g.maplocalleader = " "
 vim.opt.number = true
 vim.opt.relativenumber = false
 vim.opt.spell = true
-vim.opt.spelllang = "en_us"
+vim.opt.spelllang = "en"
 vim.opt.clipboard = "unnamedplus"
 
 -- Baseline requirements such as tree-sitter
@@ -43,7 +43,7 @@ vim.pack.add({
 	"https://github.com/nvim-tree/nvim-web-devicons",
 })
 
-require("nvim-treesitter").install({ "lua", "typescript", "go" })
+require("nvim-treesitter").install({ "lua", "typescript", "go", "java", "sql" })
 
 require("treesitter-modules").setup({
 	auto_install = true,
