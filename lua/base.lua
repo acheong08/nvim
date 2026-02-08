@@ -148,6 +148,7 @@ vim.keymap.set("n", "<leader><leader>", telescope_builtin.buffers, { desc = "[ ]
 vim.keymap.set("n", "<leader>zf", telescope_builtin.spell_suggest, { desc = "Telescope: Find spell word suggestion" })
 
 -- LSP shortcuts
+vim.keymap.set("n", "gd", vim.lsp.buf.definition, { desc = "[G]oto [D]efinition" })
 vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename)
 
 -- Scratch buffer
