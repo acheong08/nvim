@@ -167,4 +167,10 @@ require("blink.cmp").setup({
 	fuzzy = {
 		prebuilt_binaries = { download = true, force_version = "v1.7.0" },
 	},
+	completion = {
+		documentation = {
+			auto_show = true,
+			auto_show_delay_ms = 200,
+		},
+	},
 })
