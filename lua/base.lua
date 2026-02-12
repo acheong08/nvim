@@ -1,7 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 vim.opt.number = true
-vim.opt.relativenumber = false
+vim.opt.relativenumber = true
 vim.opt.spell = true
 vim.opt.spelllang = "en"
 vim.opt.clipboard = "unnamedplus"
@@ -87,13 +87,15 @@ require("conform").setup({
 	formatters_by_ft = {
 		lua = { "stylua" },
 		markdown = { "prettier" },
+		html = { "prettier" },
 		typst = { "typstyle" },
-		svelte = { "prettier" },
+		json = { "prettier" },
 		shell = { "shfmt" },
 		sh = { "shfmt" },
-		javascript = { "biome" },
-		typescript = { "biome" },
-		typescriptreact = { "biome" },
+		javascript = { "biome", "prettier" },
+		typescript = { "biome", "prettier" },
+		typescriptreact = { "biome", "prettier" },
+		svelte = { "biome" },
 		python = { "ruff" },
 		java = { "google-java-format" },
 		kotlin = { "ktfmt" },
@@ -103,6 +105,9 @@ require("conform").setup({
 		-- These options will be passed to conform.format()
 		timeout_ms = 2000,
 		lsp_format = "fallback",
+		filter = function(client)
+			return client.name ~= "ts_ls"
+		end,
 	},
 })
 require("telescope").setup({
@@ -117,6 +122,12 @@ vim.lsp.config["ts_ls"] = {
 	cmd = { "typescript-language-server", "--stdio" },
 	filetypes = { "typescript", "svelte", "typescriptreact", "javascript" },
 	root_markers = { ".git" },
+	capabilities = {
+		textDocument = {
+			formatting = false,
+			rangeFormatting = false,
+		},
+	},
 }
 
 vim.lsp.enable("typescript-language-server")
