@@ -31,13 +31,11 @@ vim.pack.add({
 	"https://github.com/nvim-telescope/telescope-ui-select.nvim",
 	-- Completion
 	"https://github.com/Saghen/blink.cmp",
+	"https://github.com/Saghen/blink.lib",
 	"https://github.com/rafikdraoui/jj-diffconflicts",
 })
+-- Removed: Neo-tree
 vim.pack.add({
-	{
-		src = "https://github.com/nvim-neo-tree/neo-tree.nvim",
-		version = vim.version.range("3"),
-	},
 	"https://github.com/nvim-lua/plenary.nvim",
 	"https://github.com/MunifTanjim/nui.nvim",
 	"https://github.com/nvim-tree/nvim-web-devicons",
@@ -171,18 +169,17 @@ vim.keymap.set("n", "<leader>bs", function()
 end, { desc = "[B]uffer [S]cratch - create new scratch buffer" })
 
 -- Auto completion
+require("blink.cmp").build():wait(60000)
 require("blink.cmp").setup({
 	sources = {
 		default = { "lsp", "path", "snippets", "buffer" },
 	},
 	keymap = { preset = "default" },
-	fuzzy = {
-		prebuilt_binaries = { download = true, force_version = "v1.7.0" },
-	},
 	completion = {
 		documentation = {
 			auto_show = true,
 			auto_show_delay_ms = 200,
 		},
 	},
+	fuzzy = { implementation = "rust" },
 })

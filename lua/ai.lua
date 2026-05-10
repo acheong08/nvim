@@ -26,5 +26,5 @@ require("copilot").setup({
 			dismiss = "<C-]>",
 		},
 	},
-	panel = { enabled = false },
+	panel = { enabled = true },
 })
