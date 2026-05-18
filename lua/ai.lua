@@ -2,7 +2,6 @@ vim.pack.add({
 	"https://github.com/nvim-lua/plenary.nvim",
 	{ src = "https://github.com/zbirenbaum/copilot.lua" },
 })
--- Configure Copilot and Copilot-LSP
 
 require("copilot").setup({
 	suggestion = {
@@ -19,4 +18,15 @@ require("copilot").setup({
 		},
 	},
 	panel = { enabled = true },
+	-- Enable copilot on ALL filetypes (including markdown, yaml, etc.)
+	filetypes = {
+		["*"] = true,
+	},
+	server_opts_overrides = {
+		settings = {
+			telemetry = {
+				telemetryLevel = "off",
+			},
+		},
+	},
 })
