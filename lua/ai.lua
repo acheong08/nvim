@@ -1,15 +1,7 @@
 vim.pack.add({
 	"https://github.com/nvim-lua/plenary.nvim",
-	"https://github.com/CopilotC-Nvim/CopilotChat.nvim",
-})
-
-require("CopilotChat").setup({
-	model = "gemini-3-flash-preview",
-})
-vim.pack.add({
 	{ src = "https://github.com/zbirenbaum/copilot.lua" },
 })
-
 -- Configure Copilot and Copilot-LSP
 
 require("copilot").setup({
