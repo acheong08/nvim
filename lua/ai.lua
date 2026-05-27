@@ -1,6 +1,7 @@
 vim.pack.add({
 	"https://github.com/nvim-lua/plenary.nvim",
-	{ src = "https://github.com/zbirenbaum/copilot.lua" },
+	"https://github.com/zbirenbaum/copilot.lua",
+	"https://github.com/CopilotC-Nvim/CopilotChat.nvim",
 })
 
 require("copilot").setup({
@@ -31,3 +32,5 @@ require("copilot").setup({
 		},
 	},
 })
+
+require("CopilotChat").setup()
