@@ -21,6 +21,7 @@ require("copilot").setup({
 	-- Enable copilot on ALL filetypes (including markdown, yaml, etc.)
 	filetypes = {
 		["*"] = true,
+		["markdown"] = false,
 	},
 	server_opts_overrides = {
 		settings = {
