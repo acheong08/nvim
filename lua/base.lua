@@ -6,6 +6,11 @@ vim.opt.spell = true
 vim.opt.spelllang = "en"
 vim.opt.clipboard = "unnamedplus"
 
+-- Case-insensitive search (/), but smartcase switches to
+-- case-sensitive when the pattern contains an uppercase letter.
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
 -- Persist undo history across sessions
 vim.opt.undofile = true
 
